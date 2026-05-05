@@ -1,0 +1,42 @@
+{
+  "name": "harwellxps-school-app",
+  "version": "1.0.0",
+  "description": "HarwellXPS Thematic School on XPS — Companion App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:all": "electron-builder --win --mac"
+  },
+  "build": {
+    "appId": "uk.ac.harwellxps.school-app",
+    "productName": "HarwellXPS School 2026",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "handbook.html",
+      "assets/**/*",
+      "content/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.education"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false
+    }
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
